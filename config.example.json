@@ -1,0 +1,38 @@
+{
+  "switches": {
+    "workflowMode": false,
+    "deadlockDetector": false,
+    "semanticMatcher": false,
+    "capabilityGate": false,
+    "contracts": true,
+    "templateLibrary": true,
+    "resultArtifacts": false
+  },
+  "matcher": {
+    "reuseThreshold": 0.8,
+    "askThreshold": 0.6,
+    "labelWeight": 0.5,
+    "embeddingWeight": 0.5,
+    "historyFloor": 0.5
+  },
+  "deadlock": {
+    "scanIntervalMs": 30000,
+    "idleTimeoutMs": 60000,
+    "escalateAfter": 3
+  },
+  "gate": {
+    "defaultTtlMs": 300000,
+    "allowOnce": true
+  },
+  "contracts": {
+    "maxAttemptsPerNode": 2,
+    "provider": "spawn"
+  },
+  "library": {
+    "root": "library"
+  },
+  "artifacts": {
+    "root": "results",
+    "maxFiles": 50
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "dsh-workflow-governance",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Host-side governance layer for workflow mode: deadlock/stall detection (D6), semantic template matching (D4), dynamic capability authorization (R9/R10), and a concrete adapter over the official ctx.workflowEngine seam. Additive and inert by default: one switch per feature, all off, no global state written.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./config": "./src/config.js",
+    "./deadlock": "./src/deadlock.js",
+    "./matcher": "./src/matcher.js",
+    "./gate": "./src/gate.js",
+    "./engine-adapter": "./src/engine-adapter.js",
+    "./observe": "./src/observe.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node --test test/"
+  }
+}

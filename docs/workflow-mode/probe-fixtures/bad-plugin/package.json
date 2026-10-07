@@ -1,0 +1,16 @@
+{
+  "name": "synthetic-bad-plugin",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "@deepseek-ai/dsh-workflow": "^9.9.9"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "inject": ["@deepseek-ai/dsh-client-ui-chat", "no-such-ui-service"]
+    }
+  }
+}

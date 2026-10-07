@@ -1,0 +1,13 @@
+# Preflight artifacts: a dump-config snapshot can contain host-specific paths,
+# and the CSV is generated per run. Keep them out of the repo.
+preflight-out/
+dump-config-*.txt
+
+# Phase-2 verification: the filled trace carries real host observations.
+# The template and the shipped EXAMPLE stay tracked on purpose.
+verify/stage2-trace.json
+verify/out/
+
+# Generated service inventory (contains this installation's absolute asar path).
+probe-services.json
+probe-services.txt

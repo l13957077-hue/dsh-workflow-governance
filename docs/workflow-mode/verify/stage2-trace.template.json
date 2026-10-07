@@ -1,0 +1,42 @@
+{
+  "_help": "Phase-2 verification trace. Fill every null from ONE real run, then: node verify/run.mjs --trace verify/stage2-trace.json   Copy this file to stage2-trace.json first and keep the copy out of git (already in .gitignore).",
+
+  "_help_observedFrom": "REQUIRED. The trace is refused without provenance so an example can never be mistaken for a real pass.",
+  "observedFrom": {
+    "command": null,
+    "date": null,
+    "note": null
+  },
+
+  "_help_run": "One workflow run. stages[] is the parsed flowchart; upstream[] holds the NAMES of the stages this stage depends on (root stages get []). preset is the agent preset assigned to that stage.",
+  "run": {
+    "command": null,
+    "exitCode": null,
+    "flowchartJsonPath": null,
+    "stages": [
+      { "name": null, "upstream": [], "preset": null }
+    ],
+    "_help_subagents": "One entry per subagent created for the run. seesOtherSubagents MUST be the list of OTHER subagent ids you can actually find inside that subagent's context; a correct isolated run gives [] for every entry.",
+    "subagents": [
+      { "id": null, "seesOtherSubagents": [] }
+    ],
+    "_help_artifacts": "kind is either 'result' or 'flowchart'. bytes is the real file size on disk.",
+    "artifacts": [
+      { "path": null, "kind": "result", "bytes": null },
+      { "path": null, "kind": "flowchart", "bytes": null }
+    ]
+  },
+
+  "_help_library": "R13: run once with the template library emptied/first-time. R14: run the SAME task a second time and record whether it reused the stored flowchart without re-splitting.",
+  "library": {
+    "emptyRun": { "exitCode": null, "decision": null },
+    "secondRun": { "reused": null, "resplit": null }
+  },
+
+  "_help_management": "R15: three separate operations on the template list. add/delete are counts before -> after; rename is the old and new name plus whether it took effect.",
+  "management": {
+    "add": { "before": null, "after": null },
+    "rename": { "before": null, "after": null, "renamed": null },
+    "delete": { "before": null, "after": null }
+  }
+}

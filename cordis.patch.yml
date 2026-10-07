@@ -1,0 +1,14 @@
+# dsh-workflow-governance bundle patch
+#
+# ADDITIVE ONLY, deliberately. The workflow seam admits ONE engine per context --
+# a second registration throws -- so this patch NEVER inserts or replaces
+# @deepseek-ai/dsh-workflow. Enabling the official workflow packages is a
+# separate, explicit host step; see docs/workflow-mode/STAGE2-PROBE.md.
+#
+# Nothing is disabled either. This layer is process governance: it must not
+# remove native capability to install itself. Nothing global is written, and
+# every feature is behind its own switch with all switches off by default, so
+# this row is inert until an operator opts in.
+- insert:
+    - id: workflow-governance
+      name: 'dsh-workflow-governance'

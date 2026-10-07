@@ -1,0 +1,70 @@
+# ─────────────────────────────────────────────────────────────
+# dsh-workflow-governance — .gitignore for a DSH plugin
+# Rule of thumb: code goes in, runtime state / local config /
+# secrets / caches never do.
+# ─────────────────────────────────────────────────────────────
+
+# ── 1. Local runtime state and user data (NEVER commit) ──
+# config.json carries machine-absolute paths; library/ and results/
+# carry real user data (session titles, run payloads).
+config.json
+state/
+library/
+results/
+*.log
+debug.log
+
+# ── 2. Generated host snapshots / probe output ──
+docs/workflow-mode/preflight-out/
+docs/workflow-mode/dump-config-*.txt
+docs/workflow-mode/probe-services.json
+docs/workflow-mode/probe-services.txt
+docs/workflow-mode/verify/stage2-trace.json
+docs/workflow-mode/verify/out/
+
+# ── 3. Secrets / environment (the most important block) ──
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets*.json
+*api-key*.json
+*token*.json
+
+# ── 4. Node / build output ──
+node_modules/
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+*.tsbuildinfo
+dist/
+build/
+coverage/
+
+# ── 5. Backups and temp files ──
+*.bak
+*.bak-*
+*.orig-backup
+*.before-*
+*.backup
+*~
+
+# ── 6. Editors / OS ──
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── 7. Local Python / DSH env ──
+.dsh-pyenv/
+.dsh-cache/
+.venv/
+__pycache__/
+*.py[cod]

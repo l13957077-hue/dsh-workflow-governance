@@ -1,0 +1,42 @@
+{
+  "_warning": "ILLUSTRATIVE ONLY. Every value here is invented to show what a green run looks like. It does not verify any host. Replace observedFrom.command and all values with your own observations; the runner warns + exits non-zero while the command starts with EXAMPLE.",
+
+  "observedFrom": {
+    "command": "EXAMPLE /workflow parallel-investigation {\"question\":\"...\"}",
+    "date": "2025-01-01",
+    "note": "shipped example; not a real run"
+  },
+
+  "run": {
+    "command": "/workflow parallel-investigation {\"question\":\"three subsystems\"}",
+    "exitCode": 0,
+    "flowchartJsonPath": "artifacts/flowchart.json",
+    "stages": [
+      { "name": "collect-sources", "upstream": [], "preset": "researcher" },
+      { "name": "analyze-a", "upstream": ["collect-sources"], "preset": "analyst" },
+      { "name": "analyze-b", "upstream": ["collect-sources"], "preset": "analyst" },
+      { "name": "synthesize", "upstream": ["analyze-a", "analyze-b"], "preset": "writer" }
+    ],
+    "subagents": [
+      { "id": "sub-collect-sources", "seesOtherSubagents": [] },
+      { "id": "sub-analyze-a", "seesOtherSubagents": [] },
+      { "id": "sub-analyze-b", "seesOtherSubagents": [] },
+      { "id": "sub-synthesize", "seesOtherSubagents": [] }
+    ],
+    "artifacts": [
+      { "path": "artifacts/result.md", "kind": "result", "bytes": 8421 },
+      { "path": "artifacts/flowchart.json", "kind": "flowchart", "bytes": 2193 }
+    ]
+  },
+
+  "library": {
+    "emptyRun": { "exitCode": 0, "decision": "create" },
+    "secondRun": { "reused": true, "resplit": false }
+  },
+
+  "management": {
+    "add": { "before": 0, "after": 1 },
+    "rename": { "before": "parallel-investigation", "after": "parallel-investigation-v2", "renamed": true },
+    "delete": { "before": 2, "after": 1 }
+  }
+}
